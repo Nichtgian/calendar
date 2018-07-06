@@ -1,0 +1,29 @@
+$font-path: "../assets/fonts";
+$app-direction: ltr;
+
+@import "ionic.globals";
+
+$colors: (
+  primary:    #ffa726,
+  secondary:  #ff5722,
+  danger:     #e91e63,
+  light:      #f4f4f4,
+  dark:       #222,
+
+  rgba-primary: rgba(255, 167, 38, 0.1),
+  rgba-danger:  rgba(233, 30, 99, 0.1),
+
+  purple:   purple, //rgba(197, 66, 244, 0.7),
+  blue:     blue,   //rgba(30, 97, 232, 0.7),
+  green:    green,  //rgba(11, 186, 28, 0.7),
+  yellow:   yellow, //rgba(243, 247, 39, 0.7),
+  orange:   orange, //rgba(255, 162, 15, 0.7),
+  red:      red     //rgba(255, 50, 5, 0.7)
+);
+
+@import "ionic.theme.default";
+@import "ionic.ionicons";
+
+/*fonts*/
+@import "roboto";
+@import "noto-sans";

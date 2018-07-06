@@ -1,0 +1,78 @@
+page-home {
+
+  .col {
+    padding: 0;
+  }
+
+  .grid {
+    padding: 0;
+  }
+
+  .toolbar-background {
+    background-image: url("https://cdn.wallpaperdirect.com/shared-assets/images/products/141661orig.jpg");
+    background-repeat: repeat-x;
+    background-size: auto 440px;
+  }
+
+  .toolbar-title-ios {
+    color: color($colors, light) !important;
+    font-size: 3em;
+  }
+
+  .calendar-container {
+    height: 100%;
+    padding: 0;
+
+    .weekday {
+      height: 5%;
+      font-weight: bolder;
+      text-align: center;
+      font-size: 1.5em;
+
+      ion-row {
+        flex: 1;
+      }
+    }
+
+    .calendar {
+      height: 95%;
+
+      ion-row {
+        flex: 1;
+      }
+    }
+  }
+
+  .offwhite {
+    color: color($colors, primary);
+  }
+
+  .today {
+    color: color($colors, secondary);
+    background-color: color($colors, rgba-danger);
+  }
+
+  .date-field {
+    background-color: color($colors, rgba-primary);
+  }
+
+  .day-date {
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-align: center;
+  }
+
+  .day-date-detail {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .day-date-event {
+    padding: 5px;
+    margin: 1px;
+    color: color($colors, light);
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+}

@@ -1,0 +1,23 @@
+page-event-details {
+
+  .content {
+    background-image: url("https://cdn.wallpaperdirect.com/shared-assets/images/products/141661orig.jpg");
+    background-repeat: repeat-x;
+    background-size: auto 440px;
+  }
+
+  .center-card {
+    max-width: 800px;
+    margin: auto;
+    margin-top: 50px;
+  }
+
+  .border {
+    border-bottom: 1px solid color($colors, dark);
+  }
+
+  ion-label {
+    color: color($colors, primary);
+  }
+
+}

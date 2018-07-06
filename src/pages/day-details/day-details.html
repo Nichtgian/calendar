@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{day.date.getDate()}}.{{day.date.getMonth() + 1}}.{{day.date.getFullYear()}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card class="center-card">
+
+    <ion-card-header>
+      details
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid *ngFor="let event of day.events">
+
+        <ion-row class="title">
+          <ion-col col-12 [style.color]="event.color">{{event.title}}</ion-col>
+        </ion-row>
+
+        <ion-row class="time">
+          <ion-col col-6>{{event.start.getHours()}}:{{event.start.getMinutes()}}</ion-col>
+          <ion-col col-6>{{event.duration}} minutes</ion-col>
+        </ion-row>
+
+        <ion-row class="header" [style.color]="event.color">
+          <ion-col col-6>description</ion-col>
+          <ion-col col-6>location</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-6>{{event.description}}</ion-col>
+          <ion-col col-6>{{event.location}}</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col col-12 class="border"></ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>
