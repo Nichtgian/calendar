@@ -15,7 +15,7 @@ export class EventProvider {
     this.storage.ready().then(() => this.getEvents());
   }
 
-  async getEvents() {
+  public async getEvents() {
     await this.storage.get("events").then((val) => {
       if (val != null) {
         this.events = val
@@ -23,7 +23,7 @@ export class EventProvider {
     });
   }
 
-  async load() {
+  public async load() {
     await this.getEvents();
     if (this.events != null) {
       return this.events;
@@ -31,13 +31,13 @@ export class EventProvider {
     return [];
   }
 
-  async add(event: Event) {
+  public async add(event: Event) {
     this.events.push(event);
     await this.storage.set("events", this.events);
     this.changeDetectionEmitter.emit();
   }
 
-  edit(event: Event) {
+  public edit(event: Event) {
     for (let i = 0; i < this.events.length; i++) {
       if (this.events[i].id == event.id) {
         this.events[i] = event;
@@ -47,7 +47,7 @@ export class EventProvider {
     this.changeDetectionEmitter.emit();
   }
 
-  delete(id: number) {
+  public delete(id: number) {
     for (let i = 0; i < this.events.length; i++) {
       if (this.events[i].id == id) {
         this.events.splice(i, 1);

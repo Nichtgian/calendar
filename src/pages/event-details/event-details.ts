@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /*interfaces*/
 import { Event } from "../../model/Event";
@@ -7,7 +7,6 @@ import { Event } from "../../model/Event";
 /*providers*/
 import { EventProvider } from "../../providers/event/event";
 
-@IonicPage()
 @Component({
   selector: 'page-event-details',
   templateUrl: 'event-details.html',
@@ -49,11 +48,11 @@ export class EventDetailsPage {
     this.setColor();
   }
 
-  async pop() {
+  public async pop() {
     await this.navCtrl.pop();
   }
 
-  async safe() {
+  public async safe() {
     let event: Event = {
       id: this.event.id,
       start: new Date(new Date(this.event.start).getTime() - this.day / 12),
@@ -67,7 +66,7 @@ export class EventDetailsPage {
     await this.pop();
   }
 
-  setColor() {
+  public setColor() {
     for (let i = 0; i < this.colors.length; i++) {
       if (this.event.color == this.colors[i].name) {
         this.colors[i].selected = true;
@@ -75,7 +74,7 @@ export class EventDetailsPage {
     }
   }
 
-  colorChange(color) {
+  public colorChange(color) {
     for (let i = 0; i < this.colors.length; i++) {
       if (color.name != this.colors[i].name) {
         this.colors[i].selected = false;
@@ -83,7 +82,7 @@ export class EventDetailsPage {
     }
   }
 
-  getColor() {
+  public getColor() {
     for (let i = 0; i < this.colors.length; i++) {
       if (this.colors[i].selected) {
         return this.colors[i].name;
@@ -91,7 +90,7 @@ export class EventDetailsPage {
     }
   }
 
-  async delete() {
+  public async delete() {
     this.eventProvider.delete(this.event.id);
     await this.pop();
   }

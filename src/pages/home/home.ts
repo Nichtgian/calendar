@@ -47,7 +47,7 @@ export class HomePage {
 
   date: Date = new Date(Date.now());
 
-  async load() {
+  public async load() {
     const day: number = 24 * 60 * 60 * 1000;
 
     let date = this.date;
@@ -108,7 +108,7 @@ export class HomePage {
   }
 
   /*convert js weekday so - sa to swiss mo - so*/
-  getDay(date: Date) {
+  public getDay(date: Date) {
     let day = date.getDay();
     day--;
     if (day < 0) {
@@ -118,12 +118,12 @@ export class HomePage {
   }
 
   /*get field value 0 - 41 from week 1 - 6 and day 1 - 7*/
-  getField(week: number, day: number) {
+  public getField(week: number, day: number) {
     return this.fields[7 * week + day];
   }
 
   /*return events of date*/
-  async getEvents(date: Date) {
+  public async getEvents(date: Date) {
     const day: number = 24 * 60 * 60 * 1000;
     let dbEvents = await this.eventProvider.load();
     let events: Array<Event> = [];
@@ -151,25 +151,25 @@ export class HomePage {
     return events;
   }
 
-  async newEvent() {
+  public async newEvent() {
     await this.navCtrl.push(EventPage);
   }
 
-  async addEvent(day: Field) {
+  public async addEvent(day: Field) {
     await this.navCtrl.push(EventPage,{ 'date': day.date });
   }
 
-  async showDay(day: Field) {
+  public async showDay(day: Field) {
     if (day.events.length > 0) {
       await this.navCtrl.push(DayDetailsPage, { 'day': day });
     }
   }
 
-  async showEventDetails(event: Event) {
+  public async showEventDetails(event: Event) {
     await this.navCtrl.push(EventDetailsPage, { 'event': event });
   }
 
-  changeMonth(numb: number) {
+  public changeMonth(numb: number) {
     this.date.setMonth(this.date.getMonth() + numb);
     this.load();
   }

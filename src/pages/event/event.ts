@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /*interfaces*/
 import { Event } from "../../model/Event";
@@ -7,7 +7,6 @@ import { Event } from "../../model/Event";
 /*providers*/
 import { EventProvider } from "../../providers/event/event";
 
-@IonicPage()
 @Component({
   selector: 'page-event',
   templateUrl: 'event.html',
@@ -43,11 +42,11 @@ export class EventPage {
     }
   }
 
-  async pop() {
+  public async pop() {
     await this.navCtrl.pop();
   }
 
-  async add() {
+  public async add() {
     let event: Event = {
       id: this.event.id,
       start: new Date(new Date(this.event.start).getTime() - this.day / 12),
@@ -61,7 +60,7 @@ export class EventPage {
     await this.pop();
   }
 
-  colorChange(color) {
+  public colorChange(color) {
     for (let i = 0; i < this.colors.length; i++) {
       if (color.name != this.colors[i].name) {
         this.colors[i].selected = false;
@@ -69,7 +68,7 @@ export class EventPage {
     }
   }
 
-  getColor() {
+  public getColor() {
     for (let i = 0; i < this.colors.length; i++) {
       if (this.colors[i].selected) {
         return this.colors[i].name;
@@ -78,7 +77,7 @@ export class EventPage {
   }
 
   /*random 5 digit int*/
-  getID() {
+  public getID() {
     return Math.floor(Math.random() * 90000) + 10000;
   }
 }
